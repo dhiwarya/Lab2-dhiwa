@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<h1> Lab 3 PBP/PBD</h1>
+
 <h5>Name: </h5>
 <b>{{name}}</b>
+
+<h5>Student ID: </h5>
+  <p>{{npm}}</p>
 
 <table>
     <tr>
@@ -20,5 +26,7 @@
     </tr>
 {% endfor %}
 </table>
+<h5>Last Login: {{ last_login }}</h5>
+<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
 
 {% endblock content %}
