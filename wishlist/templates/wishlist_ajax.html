@@ -231,3 +231,23 @@ a {
 <!-- <button><a href="{% url 'wishlist:logout' %}">Logout</a></button> -->
 
 {% endblock content %}
+
+<!--Javascript-->
+<script>
+  $(document).ready(() => {
+      const url = "{% url 'wishlist:show_wishlistajax' %}"
+      $.get(url,(data) => {
+          data.forEach((item) =>{
+              var item_name = item.fields.item_name;
+              var item_price = item.fields.item_price;
+              var item_description = item.fields.description;
+              var html = "<tr><td>" + item_name +
+                         "<td><td>" + item_price +
+                         "</td><td>" + item_description + "</td>"
+              $("tbody").append(html);
+          });
+
+      });
+  });
+
+</script>

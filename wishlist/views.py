@@ -26,6 +26,13 @@ def show_wishlist(request):
     }
     return render(request, "wishlist.html", context)
 
+def show_ajax(request):
+    context = {
+        'name': 'Dhiwa Arya Kusumah',
+        'npm': '2106657115',
+        'last_login': request.COOKIES['last_login'],
+    }
+    return render(request, "wishlist_ajax.html", context)
 
 def show_xml(request):
     data = ItemWishlist.objects.all()
