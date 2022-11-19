@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
 from django.shortcuts import render
 from wishlist.models import ItemWishlist
@@ -83,3 +83,16 @@ def logout_user(request):
     return response
 
 
+#---------------------------------------------------AJAX Implementation-------------------------------------------------------------#
+def add_wishlist_item(request):
+    if request.method == 'POST':
+        nama_barang = request.POST.get("item_name")
+        harga_barang = request.POST.get("item_price")
+        deskripsi = request.POST.get("description")
+
+        new_barang = ItemWishlist(nama_barang=nama_barang, harga_barang=harga_barang, deskripsi=deskripsi)
+        new_barang.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
