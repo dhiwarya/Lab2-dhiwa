@@ -185,7 +185,7 @@ a {
     <header class="header">
       <ul class="main-nav">
           <li><a>Dhiwa</a></li>
-          <li><a href="">wishlist</a></li>
+          <li><a href="{% url 'wishlist:show_ajax' %}">wishlist</a></li>
           <li><a href="{% url 'wishlist:login' %}">Login</a></li>
           <li><a href="{% url 'wishlist:register' %}">Register</a></li>
       </ul>

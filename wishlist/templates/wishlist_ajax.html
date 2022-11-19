@@ -5,6 +5,44 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 {% block content %}
+<style>
+    body {
+      font-family: sans-serif;
+      color: #07BEB8;
+      background-color: linear-gradient(#9CEAEF,#c4fff9);
+    }
+
+    h1 {
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    button {
+      margin: 10px
+    }
+
+    table {
+      /* border-collapse: collapse; */
+      box-shadow: 0 5px 10px gray;  
+      background-color:#d8d8d8;
+      text-align: left;
+      overflow: hidden;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 0.1rem;
+    }
+</style>
+
 
 <h1>Wishlist</h1>
   <form id="form" onsubmit="return false;">
@@ -29,9 +67,9 @@
         document.getElementById("table").innerHTML = ""
         const wishlist = await getWishlist()
         let htmlString = `<tr>
-          <th>Nama Barang</th>
-          <th>Harga Barang</th>
-          <th>Deskripsi</th>
+          <th>Item name</th>
+          <th>Item price</th>
+          <th>Description</th>
         </tr>`
         wishlist.forEach((item) => {
           htmlString += `\n<tr>
